@@ -3,7 +3,7 @@ import { HttpsError } from 'firebase-functions/v1/auth';
 import { realtimeDb } from './utils/firebase';
 import { MatchSession } from '@match-movies/types';
 
-export const createSession = https.onCall(async (data, context) => {
+export const createSession = https.onCall(async (_, context) => {
   const userId = context.auth?.uid;
 
   if (!userId) {
