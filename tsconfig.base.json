@@ -10,13 +10,25 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@match-movies/core": ["core/src/index.ts"]
-    }
+      "@match-movies/core": [
+        "core/src/index.ts"
+      ],
+      "@match-movies/types": [
+        "types/src/index.ts"
+      ]
+    },
+    "strict": true,
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
