@@ -1,5 +1,4 @@
-export interface Session {
-  code: string;
+export interface MatchSession {
   owner: string;
-  members: string[];
+  members: { [key: string]: boolean };
 }
