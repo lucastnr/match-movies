@@ -1,0 +1,47 @@
+{
+  "name": "functions",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "functions/src",
+  "projectType": "application",
+  "tags": [
+    "firebase:function",
+    "firebase:name:functions",
+    "firebase:dep:firebase"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/functions",
+        "main": "functions/src/main.ts",
+        "tsConfig": "functions/tsconfig.app.json",
+        "assets": [
+          "functions/src/assets",
+          {
+            "glob": "**/*",
+            "input": "firebase/environment",
+            "output": "."
+          }
+        ],
+        "generatePackageJson": true,
+        "platform": "node",
+        "bundle": true,
+        "thirdParty": false,
+        "dependenciesFieldType": "dependencies",
+        "target": "node16",
+        "format": ["esm"],
+        "esbuildOptions": {
+          "logLevel": "info"
+        }
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx run firebase:deploy --only functions:functions"
+      },
+      "dependsOn": ["build"]
+    }
+  }
+}

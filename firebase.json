@@ -5,14 +5,10 @@
   "firestore": {
     "rules": "firebase/firestore.rules",
     "indexes": "firebase/firestore.indexes.json"
-  },    
+  },
   "hosting": {
     "public": "firebase/public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
@@ -21,9 +17,16 @@
     ]
   },
   "storage": {
-      "rules": "firebase/storage.rules"
+    "rules": "firebase/storage.rules"
   },
-  "functions": [],
+  "functions": [
+    {
+      "codebase": "functions",
+      "source": "dist/functions",
+      "runtime": "nodejs16",
+      "ignore": ["*.local"]
+    }
+  ],
   "emulators": {
     "auth": {
       "port": 9099
