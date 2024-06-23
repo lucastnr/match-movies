@@ -18,6 +18,7 @@ export const createSession = https.onCall(async (_, context) => {
     members: {
       [userId]: true,
     },
+    createdAt: new Date().getTime(),
   };
 
   const db = await realtimeDb.ref('sessions').push(newSession);
