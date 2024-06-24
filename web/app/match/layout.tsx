@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/components/ui/button';
 import { $user, $userLoading, logout } from '@/store/auth';
 import { useStore } from '@nanostores/react';
 import { useRouter } from 'next/navigation';
@@ -20,15 +21,17 @@ export default function MatchLayout({
   }, [userLoading, user]);
 
   return (
-    <div className="flex flex-col h-screen w-full">
-      <header className="flex flex-row justify-between items-center bg-black text-white p-4">
-        <h1>Match Movies</h1>
-        <button
-          className="text-sm p-2 bg-white text-black rounded-xl"
+    <div className="flex h-screen w-full flex-col">
+      <header className="flex flex-row items-center justify-between bg-black p-4">
+        <h1 className="text-white">Match Movies</h1>
+        <Button
+          size="lg"
+          variant="secondary"
+          className="text-md"
           onClick={() => logout()}
         >
           Logout
-        </button>
+        </Button>
       </header>
       <main className="flex-1">{children}</main>
     </div>
