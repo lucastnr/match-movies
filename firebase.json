@@ -23,7 +23,7 @@
     {
       "codebase": "functions",
       "source": "dist/functions",
-      "runtime": "nodejs16",
+      "runtime": "nodejs18",
       "ignore": ["*.local"]
     }
   ],
