@@ -17,3 +17,6 @@ Contains the Firebase Functions codebase, i.e. the backend microservice, which w
 
 ## firebase
 Gathers all the Firebase configuration, like database rules.
+
+# Future ideas
+I want to create a mobile application using the `core` lib as the base.
