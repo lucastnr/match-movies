@@ -12,6 +12,6 @@
   },
   "aliases": {
     "components": "@match-movies/web/components",
-    "utils": "@match-movies/web/utils/shadcn"
+    "utils": "@/utils/shadcn"
   }
 }
