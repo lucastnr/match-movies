@@ -1,5 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
 import { $user, loginWithGoogle } from '@/store/auth';
 import { useStore } from '@nanostores/react';
 import Image from 'next/image';
@@ -15,8 +16,13 @@ export default function Index() {
   }, [user]);
 
   return (
-    <div className="flex h-screen w-full flex-row items-center justify-center">
-      <Button className="flex flex-row gap-2 text-xl p-6" onClick={loginWithGoogle}>
+    <div className="flex h-full min-h-screen w-full flex-row items-center justify-center">
+      <Button
+        size="huge"
+        className="flex flex-row gap-2"
+        variant="outline"
+        onClick={loginWithGoogle}
+      >
         Sign In With Google
         <Image
           src="/icons/google.svg"

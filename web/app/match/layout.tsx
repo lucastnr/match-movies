@@ -21,18 +21,8 @@ export default function MatchLayout({
   }, [userLoading, user]);
 
   return (
-    <div className="flex h-screen w-full flex-col">
-      <header className="grid w-full grid-cols-3 grid-rows-1 items-center bg-black p-4">
-        {/* TODO: remove these if not adding anything else here */}
-        <span />
-        <span />
-        <div className="justify-self-end">
-          <Button variant="secondary" onClick={() => logout()}>
-            Logout
-          </Button>
-        </div>
-      </header>
-      <main className="flex-1">{children}</main>
+    <div>
+      <main>{children}</main>
     </div>
   );
 }
