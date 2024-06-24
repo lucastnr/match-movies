@@ -23,6 +23,9 @@
       ],
       "@match-movies/types": [
         "types/src/index.ts"
+      ],
+      "@match-movies/web/*": [
+        "web/*"
       ]
     },
     "strict": true,

@@ -1,0 +1,6 @@
+// This file is needed to work with shadcn
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+  }
+}
