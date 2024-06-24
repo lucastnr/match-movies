@@ -22,16 +22,15 @@ export default function MatchLayout({
 
   return (
     <div className="flex h-screen w-full flex-col">
-      <header className="flex flex-row items-center justify-between bg-black p-4">
-        <h1 className="text-white">Match Movies</h1>
-        <Button
-          size="lg"
-          variant="secondary"
-          className="text-md"
-          onClick={() => logout()}
-        >
-          Logout
-        </Button>
+      <header className="grid w-full grid-cols-3 grid-rows-1 items-center bg-black p-4">
+        {/* TODO: remove these if not adding anything else here */}
+        <span />
+        <span />
+        <div className="justify-self-end">
+          <Button variant="secondary" onClick={() => logout()}>
+            Logout
+          </Button>
+        </div>
       </header>
       <main className="flex-1">{children}</main>
     </div>
