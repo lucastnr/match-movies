@@ -25,8 +25,16 @@ import { db } from "~/server/db";
  * @see https://trpc.io/docs/server/context
  */
 export const createTRPCContext = async (opts: { headers: Headers }) => {
+  async function getUserFromHeader() {
+    const authorization = opts.headers.get("authorization");
+    if (!authorization) return null;
+    // TODO: Implement proper authentication
+    return { id: crypto.randomUUID(), name: "Test User" };
+  }
+
   return {
     db,
+    user: await getUserFromHeader(),
     ...opts,
   };
 };

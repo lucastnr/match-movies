@@ -10,11 +10,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String
+  ownedSessions Session[] @relation("SessionOwner")
+  sessions      Session[] @relation("SessionParticipant")
+  likes         Like[]    @relation("UserLikes")
+}
 
-  @@index([name])
+model Session {
+  id           String @id @default(cuid())
+  ownerId      String
+  owner        User   @relation("SessionOwner", fields: [ownerId], references: [id])
+  participants User[] @relation("SessionParticipant")
+  likes        Like[] @relation("SessionLike")
+}
+
+model Like {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation("UserLikes", fields: [userId], references: [id])
+  sessionId String
+  session   Session @relation("SessionLike", fields: [sessionId], references: [id])
 }
